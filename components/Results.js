@@ -1,9 +1,16 @@
-import { checkBreedsAndConfidence } from '@/utils/results'
+import Image from 'next/image'
 
-const Results = ({ results, score }) => {
+import { checkBreedsAndConfidence } from '@/utils/results'
+import LoadingDog from '@/assets/loading-dog.gif'
+
+const Results = ({ results, score, classificationRunning }) => {
+  if (classificationRunning) {
+    return <Image src={LoadingDog} alt="animation of dog running" height={60} width={60} />
+  }
+
   return (
     <>
-      <h2 className="mt-6 text-xl text-orange-600">{score}</h2>
+      <h2 className="px-8 mt-6 text-xl text-orange-600 text-center">{score}</h2>
       {results && results.length > 0 ? (
         <table className="sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5 mt-6">
           <thead className="bg-teal-500 sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0 text-white">

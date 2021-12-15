@@ -12,7 +12,7 @@ const Upload = () => {
   const canvasRef = useRef(null)
   const [file, setFile] = useState(null)
   const [results, setResults] = useState([])
-  const { isLoaded, classify } = useClassification()
+  const { modelLoaded, classify, classificationRunning } = useClassification()
 
   const onDrop = useCallback((acceptedFiles) => {
     setFile(acceptedFiles[0])
@@ -26,12 +26,12 @@ const Upload = () => {
   const runClassification = async () => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
-    const imageData = ctx.getImageData(0, 0, 512, 512)
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
     const classes = await classify(imageData)
     setResults(checkBreedsAndConfidence(classes))
   }
 
-  if (!isLoaded) {
+  if (!modelLoaded) {
     return <Loading />
   }
 
@@ -43,7 +43,11 @@ const Upload = () => {
         <>
           <Canvas ref={canvasRef} file={file} />
           <Controls onSubmit={runClassification} onCancel={clearFile} />
-          <Results results={results.results} score={results.score} />
+          <Results
+            results={results.results}
+            score={results.score}
+            classificationRunning={classificationRunning}
+          />
         </>
       )}
     </>

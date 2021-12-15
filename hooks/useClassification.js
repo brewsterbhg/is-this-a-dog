@@ -5,12 +5,13 @@ import * as tf from '@tensorflow/tfjs'
 import tfService from '@/services/tf'
 
 const useTensorflow = () => {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [modelLoaded, setModelLoaded] = useState(false)
+  const [classificationRunning, setClassificationRunning] = useState(false)
 
   const loadTensorflowMobileNet = async () => {
     try {
       await tfService.load()
-      setIsLoaded(true)
+      setModelLoaded(true)
     } catch (err) {
       console.error('Error loading tensorflow mobilenet')
     }
@@ -18,7 +19,9 @@ const useTensorflow = () => {
 
   const classify = async (img) => {
     try {
+      setClassificationRunning(true)
       const { data } = await tfService.classify(img)
+      setClassificationRunning(false)
       return data.payload
     } catch (err) {
       console.error('Error classifying image')
@@ -30,8 +33,9 @@ const useTensorflow = () => {
   }, [])
 
   return {
-    isLoaded,
+    modelLoaded,
     classify,
+    classificationRunning,
   }
 }
 
