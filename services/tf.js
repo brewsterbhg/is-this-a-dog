@@ -1,5 +1,3 @@
-import * as tf from '@tensorflow/tfjs'
-
 class TensorFlow {
   _dispatch(event) {
     const { msg } = event

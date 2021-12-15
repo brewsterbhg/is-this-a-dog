@@ -1,27 +1,30 @@
 /* eslint-disable react/display-name */
-import { useEffect, forwardRef } from 'react'
+import { useEffect, useCallback, forwardRef } from 'react'
 
 import { toImage } from '@/utils/toImage'
 
 const Canvas = forwardRef(({ file }, canvasRef) => {
-  async function drawImage(src) {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    const imageElement = await toImage(src)
+  const drawImage = useCallback(
+    async (src) => {
+      const canvas = canvasRef.current
+      const ctx = canvas.getContext('2d')
+      const imageElement = await toImage(src)
 
-    canvas.width = imageElement.width
-    canvas.height = imageElement.height
-    ctx.drawImage(imageElement, 0, 0)
-  }
+      canvas.width = imageElement.width
+      canvas.height = imageElement.height
+      ctx.drawImage(imageElement, 0, 0)
+    },
+    [canvasRef]
+  )
 
-  const processImage = useEffect(() => {
+  useEffect(() => {
     if (!file || !canvasRef.current) {
       return
     }
     const src = URL.createObjectURL(file)
     drawImage(src)
     return () => URL.revokeObjectURL(src)
-  })
+  }, [file, canvasRef, drawImage])
 
   return (
     <canvas

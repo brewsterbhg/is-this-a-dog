@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import { checkBreedsAndConfidence } from '@/utils/results'
 import LoadingDog from '@/assets/loading-dog.gif'
 
 const Results = ({ results, score, classificationRunning }) => {

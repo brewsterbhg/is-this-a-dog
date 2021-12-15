@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback } from 'react'
 
 import Canvas from '@/components/Canvas'
 import Dropzone from '@/components/Dropzone'

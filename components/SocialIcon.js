@@ -2,8 +2,6 @@ import Image from 'next/image'
 
 import Mail from '@/assets/social-icons/mail.svg'
 import Github from '@/assets/social-icons/github.svg'
-import Facebook from '@/assets/social-icons/facebook.svg'
-import Youtube from '@/assets/social-icons/youtube.svg'
 import Linkedin from '@/assets/social-icons/linkedin.svg'
 import Twitter from '@/assets/social-icons/twitter.svg'
 

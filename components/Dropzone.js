@@ -1,4 +1,3 @@
-import { useCallback, useMemo, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 const Dropzone = ({ onDrop }) => {
