@@ -42,7 +42,11 @@ const Upload = () => {
       ) : (
         <>
           <Canvas ref={canvasRef} file={file} />
-          <Controls onSubmit={runClassification} onCancel={clearFile} />
+          <Controls
+            onSubmit={runClassification}
+            onCancel={clearFile}
+            classificationRunning={classificationRunning}
+          />
           <Results
             results={results.results}
             score={results.score}
