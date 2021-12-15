@@ -23,7 +23,13 @@ const Canvas = forwardRef(({ file }, canvasRef) => {
     return () => URL.revokeObjectURL(src)
   })
 
-  return <canvas ref={canvasRef} style={{ maxHeight: 300, objectFit: 'contain' }}></canvas>
+  return (
+    <canvas
+      ref={canvasRef}
+      className="w-full"
+      style={{ maxHeight: 300, objectFit: 'contain' }}
+    ></canvas>
+  )
 })
 
 export default Canvas
