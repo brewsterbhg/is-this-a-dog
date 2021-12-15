@@ -1,4 +1,4 @@
-const toImage = (src) => {
+export const toImage = (src) => {
   return new Promise((resolve, reject) => {
     const img = new Image()
     img.src = src
@@ -6,5 +6,3 @@ const toImage = (src) => {
     img.onerror = reject
   })
 }
-
-export default toImage

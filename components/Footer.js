@@ -1,4 +1,3 @@
-import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/SocialIcon'
 
 export default function Footer() {
@@ -6,13 +5,13 @@ export default function Footer() {
     <footer>
       <div className="flex flex-col items-center mt-12">
         <div className="flex mb-3 space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
-          <SocialIcon kind="github" href={siteMetadata.github} />
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} />
+          <SocialIcon kind="mail" href={`mailto:keith.brewster22@gmail.com`} />
+          <SocialIcon kind="github" href={`https://github.com/brewsterbhg`} />
+          <SocialIcon kind="linkedin" href={`https://twitter.com/switchcasebreak`} />
+          <SocialIcon kind="twitter" href={`https://www.linkedin.com/in/brewcodes`} />
         </div>
         <div className="flex mb-8 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
+          <div>Keith Brewster</div>
           <div>{` • `}</div>
           <div>{`${new Date().getFullYear()}`}</div>
         </div>

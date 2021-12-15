@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { useEffect, forwardRef } from 'react'
 
-import toImage from '../utils/toImage'
+import { toImage } from '@/utils/toImage'
 
 const Canvas = forwardRef(({ file }, canvasRef) => {
   async function drawImage(src) {
