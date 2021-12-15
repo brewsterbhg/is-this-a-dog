@@ -1,6 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
-import * as mobilenet from '@tensorflow-models/mobilenet'
-import * as tf from '@tensorflow/tfjs'
+import { useState, useEffect } from 'react'
 
 import tfService from '@/services/tf'
 
