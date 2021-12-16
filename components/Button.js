@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-const Button = ({ text, onClick, icon, ...rest }) => {
+const Button = ({ text, onClick, icon, size = 15, ...rest }) => {
   return (
     <button onClick={onClick} {...rest}>
-      <Image src={icon} height={15} width={15} alt="" /> <span className="pl-1">{text}</span>
+      <Image src={icon} height={size} width={size} alt="" /> <span className="pl-1">{text}</span>
     </button>
   )
 }

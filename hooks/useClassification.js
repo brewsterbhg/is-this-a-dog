@@ -11,7 +11,7 @@ const useTensorflow = () => {
       await tfService.load()
       setModelLoaded(true)
     } catch (err) {
-      console.error('Error loading tensorflow mobilenet')
+      console.error('Error loading tensorflow mobilenet', err)
     }
   }
 
@@ -19,10 +19,11 @@ const useTensorflow = () => {
     try {
       setClassificationRunning(true)
       const { data } = await tfService.classify(img)
-      setClassificationRunning(false)
       return data.payload
     } catch (err) {
-      console.error('Error classifying image')
+      console.error('Error classifying image', err)
+    } finally {
+      setClassificationRunning(false)
     }
   }
 

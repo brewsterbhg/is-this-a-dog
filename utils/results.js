@@ -1,5 +1,5 @@
 import breeds from '@/data/breeds'
-import { RESULT_SCORES, RESULT_MESSAGES } from '@/constants/index'
+import { RESULT_MESSAGES } from '@/constants/index'
 
 const cleanResult = (result) =>
   result.className.includes(',') ? { ...result, className: result.className.split(',')[0] } : result
