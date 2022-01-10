@@ -1,4 +1,5 @@
 import * as mobilenet from '@tensorflow-models/mobilenet'
+import '@tensorflow/tfjs'
 
 let model
 
@@ -39,7 +40,7 @@ onmessage = function (e) {
       loadMobilenet()
       checkLibraryLoaded(function (success) {
         if (!success) {
-          throw new Error('Error loading OpenCV')
+          throw new Error('Error loading TensorFlow')
         }
         postMessage({ msg: e.data.msg })
       })
